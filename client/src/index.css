@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.85rem;
+  --background: oklch(0.982 0.008 92);
+  --foreground: oklch(0.235 0.025 178);
+  --card: oklch(0.997 0.002 95);
+  --card-foreground: oklch(0.235 0.025 178);
+  --popover: oklch(0.997 0.002 95);
+  --popover-foreground: oklch(0.235 0.025 178);
+  --primary: oklch(0.41 0.105 177);
+  --primary-foreground: oklch(0.99 0.004 160);
+  --secondary: oklch(0.943 0.02 170);
+  --secondary-foreground: oklch(0.32 0.06 177);
+  --muted: oklch(0.949 0.012 97);
+  --muted-foreground: oklch(0.47 0.025 177);
+  --accent: oklch(0.935 0.03 170);
+  --accent-foreground: oklch(0.29 0.06 177);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.87 0.025 164);
+  --input: oklch(0.87 0.025 164);
+  --ring: oklch(0.54 0.12 175);
+}
+
+.dark {
+  --background: oklch(0.19 0.03 176);
+  --foreground: oklch(0.93 0.015 160);
+  --card: oklch(0.24 0.035 176);
+  --card-foreground: oklch(0.93 0.015 160);
+  --popover: oklch(0.24 0.035 176);
+  --popover-foreground: oklch(0.93 0.015 160);
+  --primary: oklch(0.7 0.1 165);
+  --primary-foreground: oklch(0.19 0.03 176);
+  --secondary: oklch(0.3 0.04 176);
+  --secondary-foreground: oklch(0.88 0.02 160);
+  --muted: oklch(0.3 0.04 176);
+  --muted-foreground: oklch(0.72 0.02 160);
+  --accent: oklch(0.34 0.05 176);
+  --accent-foreground: oklch(0.94 0.02 160);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.7 0.1 165);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  body {
+    @apply bg-background text-foreground;
+    min-width: 320px;
+    font-family: "DM Sans", sans-serif;
+    background-image: radial-gradient(circle at 15% -10%, oklch(0.93 0.05 166 / 0.8), transparent 30rem), radial-gradient(circle at 92% 5%, oklch(0.95 0.05 89 / 0.9), transparent 23rem);
+  }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), [type="button"]:not(:disabled), [type="submit"]:not(:disabled), [type="reset"]:not(:disabled), a[href], select:not(:disabled), input[type="checkbox"]:not(:disabled), input[type="radio"]:not(:disabled) { @apply cursor-pointer; }
+}
+
+@layer utilities {
+  .font-display { font-family: "Playfair Display", serif; }
+  .font-mono { font-family: "DM Mono", monospace; }
+  .checkerboard {
+    background-color: #f8faf9;
+    background-image: linear-gradient(45deg, #e4ebe8 25%, transparent 25%), linear-gradient(-45deg, #e4ebe8 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e4ebe8 75%), linear-gradient(-45deg, transparent 75%, #e4ebe8 75%);
+    background-size: 24px 24px;
+    background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+  }
+}
